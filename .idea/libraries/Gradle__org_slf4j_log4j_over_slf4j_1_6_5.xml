@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.slf4j:log4j-over-slf4j:1.6.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.6.5/12ff795524a26febee58cc464c06b90ca27b04dd/log4j-over-slf4j-1.6.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.6.5/9d4dac641e6c3e444436caf2949783e4a7e57996/log4j-over-slf4j-1.6.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
