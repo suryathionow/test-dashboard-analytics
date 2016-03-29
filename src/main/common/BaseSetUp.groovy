@@ -17,8 +17,6 @@ class BaseSetUp {
     protected final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(this.getClass());
     protected def LoginPage loginPage = new LoginPage()
     protected def RegisterPage registerPage = new RegisterPage()
-    protected LoginPage loginPage = new LoginPage()
-    protected RegisterPage registerPage = new RegisterPage()
     protected SetupAnalyticPage setupAnalyticPage = new SetupAnalyticPage()
 
     @Before
