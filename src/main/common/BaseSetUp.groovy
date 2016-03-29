@@ -2,9 +2,12 @@ package common
 import geb.Browser
 import org.junit.After
 import org.junit.Before
+import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import page.LoginPage
 import page.RegisterPage
+import page.SetupAnalyticPage
 
 /**
  * Created by c07nw91fg1hw on 3/28/16.
@@ -14,13 +17,18 @@ class BaseSetUp {
     protected final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(this.getClass());
     protected def LoginPage loginPage = new LoginPage()
     protected def RegisterPage registerPage = new RegisterPage()
+    protected LoginPage loginPage = new LoginPage()
+    protected RegisterPage registerPage = new RegisterPage()
+    protected SetupAnalyticPage setupAnalyticPage = new SetupAnalyticPage()
 
     @Before
     void openURL() {
         browser.clearCookies()
         browser.go("http://labs:Welcome123@54.225.139.186:8080/dashboard/resources/html/index.html")
+        browser.driver.manage().window().maximize()
         loginPage = browser.page(LoginPage)
         registerPage = browser.page(RegisterPage)
+        setupAnalyticPage = browser.page(SetupAnalyticPage)
     }
 
     @After

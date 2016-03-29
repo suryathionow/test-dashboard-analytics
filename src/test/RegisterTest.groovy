@@ -10,6 +10,6 @@ class RegisterTest extends BaseSetUp {
     void register() throws Exception{
         loginPage.registerHyperlink.click()
         waitFor(3)
-        registerPage.inputValidCredential()
+        registerPage.testInputValidCredential()
     }
 }

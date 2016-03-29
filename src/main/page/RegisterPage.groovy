@@ -33,7 +33,7 @@ class RegisterPage extends Page{
         loginModule             {module LoginModule}
     }
 
-    void inputValidCredential(){
+    void testInputValidCredential(){
         Assert.assertEquals("CREATE AN ACCOUNT",pageTitle.text())
         firstNameTxtField.value("Albert")
         sleep(2000)
