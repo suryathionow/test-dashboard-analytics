@@ -8,7 +8,7 @@ import org.junit.Test;
 class RegisterTest extends BaseSetUp {
     @Test
     void register() throws Exception{
-        loginPage.loginModule.registerHyperlink.click()
+        loginPage.registerHyperlink.click()
         waitFor(3)
         registerPage.inputValidCredential()
     }

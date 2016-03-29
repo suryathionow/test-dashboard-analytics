@@ -12,11 +12,12 @@ import page.RegisterPage
 class BaseSetUp {
     def browser = new Browser(driver: new FirefoxDriver())
     protected final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(this.getClass());
-    protected LoginPage loginPage = new LoginPage()
-    protected RegisterPage registerPage = new RegisterPage()
+    protected def LoginPage loginPage = new LoginPage()
+    protected def RegisterPage registerPage = new RegisterPage()
 
     @Before
     void openURL() {
+        browser.clearCookies()
         browser.go("http://labs:Welcome123@54.225.139.186:8080/dashboard/resources/html/index.html")
         loginPage = browser.page(LoginPage)
         registerPage = browser.page(RegisterPage)

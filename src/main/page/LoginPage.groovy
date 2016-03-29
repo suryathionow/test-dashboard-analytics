@@ -1,7 +1,6 @@
 package page;
 import geb.Page
 import groovy.util.logging.Slf4j
-import module.*
 
 /**
  * Created by c07nw91fg1hw on 3/28/16.
@@ -15,12 +14,12 @@ public class LoginPage extends Page{
         titleHeader             {$('div[class="login-header"]')}
         titleLoginSection       {$('div[class="text-bold login-text"]')}
         usernameText            {$('div[class="col-xs-12 input-username-containt"]')}
-        userNameTextField       {$('#username')}
+        userNameTextField       {$('input#username')}
         passwordText            {$('div[class="col-xs-12 input-password-containt"]')}
-        passwordTextField       {$('#password')}
+        passwordTextField       {$('input#password')}
         rememberMeBox           {$('input#remember-me')}
         rememberMeBoxText       {$('label[for="remeber-me"]')}
-        loginButton             {$('#login-submit')}
+        loginButton             {$('button#login-submit')}
         forgotPasswordHyperlink {$('a#forgot_password')}
         registerTextInfo        {$('div[class="col-xs-12 col-sm-12 col-md-12 register-email-containt"]')}
         registerHyperlink       {$('a#register_email')}
@@ -31,7 +30,7 @@ public class LoginPage extends Page{
     void inputCredentials(String usernm, String pass){
         userNameTextField.value(usernm)
         passwordTextField.value(pass)
-        this.username = usernm
+        username = usernm
         System.out.println("usernmae uynag : "+username)
         loginButton.click()
     }
