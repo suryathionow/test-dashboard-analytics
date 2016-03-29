@@ -4,6 +4,7 @@ import org.junit.After
 import org.junit.Before
 import org.openqa.selenium.firefox.FirefoxDriver
 import page.LoginPage
+import page.RegisterPage
 
 /**
  * Created by c07nw91fg1hw on 3/28/16.
@@ -12,11 +13,13 @@ class BaseSetUp {
     def browser = new Browser(driver: new FirefoxDriver())
     protected final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(this.getClass());
     protected LoginPage loginPage = new LoginPage()
+    protected RegisterPage registerPage = new RegisterPage()
 
     @Before
     void openURL() {
         browser.go("http://labs:Welcome123@54.225.139.186:8080/dashboard/resources/html/index.html")
         loginPage = browser.page(LoginPage)
+        registerPage = browser.page(RegisterPage)
     }
 
     @After
