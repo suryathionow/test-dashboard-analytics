@@ -3,23 +3,25 @@ import geb.Browser
 import org.junit.After
 import org.junit.Before
 import org.openqa.selenium.firefox.FirefoxDriver
-import page.Home
+import page.LoginPage
 
 /**
  * Created by c07nw91fg1hw on 3/28/16.
  */
 class BaseSetUp {
     def browser = new Browser(driver: new FirefoxDriver())
-    protected Home home = new Home()
+    protected final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(this.getClass());
+    protected LoginPage loginPage = new LoginPage()
 
     @Before
     void openURL() {
         browser.go("http://labs:Welcome123@54.225.139.186:8080/dashboard/resources/html/index.html")
-        home = browser.page(Home)
+        loginPage = browser.page(LoginPage)
     }
 
     @After
     void closeBrowser(){
+        waitFor(5)
         browser.close()
     }
 
