@@ -10,7 +10,7 @@ class SetupAnalyticTest extends BaseSetUp{
     void createHypothesisAudienceAnalysisTest(){
         log.info("Step: Verify User is Able to Create Hypothesis for Audience Analysis")
         log.info("1. Login using valid credentials.")
-        loginPage.loginModule.logIn("qaautomation", "Welcome123")
+        loginPage.inputCredentials("qaautomation", "Welcome123")
         waitFor(5)
         log.info("2. Click Setup Analytic Button")
         Assert.assertEquals("Dashboard",setupAnalyticPage.dashboardTitle.text())
