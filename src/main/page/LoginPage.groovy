@@ -38,4 +38,12 @@ public class LoginPage extends Page{
     String getUsername(){
         return username
     }
+
+    void enabledRememberMeTest(){
+        if (rememberMeBox.isDisabled()){
+            rememberMeBox.click()
+        }
+        sleep(5000)
+        rememberMeBox.click()
+    }
 }

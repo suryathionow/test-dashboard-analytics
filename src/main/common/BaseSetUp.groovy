@@ -5,6 +5,7 @@ import org.junit.Before
 import org.openqa.selenium.JavascriptExecutor
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
+import page.HomePage
 import page.LoginPage
 import page.RegisterPage
 import page.SetupAnalyticPage
@@ -18,6 +19,7 @@ class BaseSetUp {
     protected def LoginPage loginPage = new LoginPage()
     protected def RegisterPage registerPage = new RegisterPage()
     protected SetupAnalyticPage setupAnalyticPage = new SetupAnalyticPage()
+    protected def HomePage homePage = new HomePage()
 
     @Before
     void openURL() {
@@ -27,6 +29,7 @@ class BaseSetUp {
         loginPage = browser.page(LoginPage)
         registerPage = browser.page(RegisterPage)
         setupAnalyticPage = browser.page(SetupAnalyticPage)
+        homePage = browser.page(HomePage)
     }
 
     @After
