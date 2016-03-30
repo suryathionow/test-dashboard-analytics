@@ -2,6 +2,7 @@ package page
 
 import geb.Page
 import junit.framework.Assert
+import module.Footer
 
 /**
  * Created by c07f2arudd6h on 3/29/16.
@@ -16,6 +17,7 @@ class HomePage extends Page{
         thumbnailWebsite        {$('div[class="site-image-container"]')}
 //        thumbnailImage          {$('div[id="setup-analytic"]')}
         setUpAnalyticButton     {$('div#setup-analytic')}
+        footerModule            {module Footer}
     }
 
 //    void assertTest(){
@@ -31,6 +33,9 @@ class HomePage extends Page{
     }
 
     void listWebsiteTest(){
+        if (thumbnailWebsite.isEmpty()){
+
+        }
         if (thumbnailWebsite.size() < 3){
             Assert.assertEquals(false, previousButton.isDisplayed())
             Assert.assertEquals(false, nextButton.isDisplayed())

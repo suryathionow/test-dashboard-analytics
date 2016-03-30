@@ -14,5 +14,9 @@ class HomeTest extends BaseSetUp{
         homePage.listWebsiteTest()
         waitFor(3)
         homePage.setupButtonTest()
+        waitFor(3)
+        homePage.footerModule.assertFooterTest()
+//        waitFor(3)
+//        homePage.footerModule.hyperlinkTest()
     }
 }
