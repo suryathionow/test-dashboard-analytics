@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver
 import page.HomePage
 import page.LoginPage
 import page.RegisterPage
+import page.SegmentationListPage
 import page.SetupAnalyticPage
 
 /**
@@ -18,18 +19,20 @@ class BaseSetUp {
     protected final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(this.getClass());
     protected def LoginPage loginPage = new LoginPage()
     protected def RegisterPage registerPage = new RegisterPage()
-    protected SetupAnalyticPage setupAnalyticPage = new SetupAnalyticPage()
     protected def HomePage homePage = new HomePage()
+    protected def SetupAnalyticPage setupAnalyticPage = new SetupAnalyticPage()
+    protected def SegmentationListPage segmentationListPage = new SegmentationListPage()
 
     @Before
     void openURL() {
         browser.clearCookies()
         browser.go("http://labs:Welcome123@54.225.139.186:8080/dashboard/resources/html/index.html")
-        browser.driver.manage().window().maximize()
+//        browser.driver.manage().window().maximize()
         loginPage = browser.page(LoginPage)
         registerPage = browser.page(RegisterPage)
         setupAnalyticPage = browser.page(SetupAnalyticPage)
         homePage = browser.page(HomePage)
+        segmentationListPage = browser.page(SegmentationListPage)
     }
 
     @After

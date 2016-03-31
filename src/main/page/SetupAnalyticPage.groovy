@@ -24,7 +24,9 @@ class SetupAnalyticPage extends Page{
         //=============== Use this Element below after click createHypothesis ===========
         hypothesisTitleTxtFld           {$('input#name.form-control')}
         dateRangeTxtFldClick            {$('input#start-date')}
-        dateRangeSelectDay              {$('div.pmu-button').eq(37)}
+        dateRangeSelectFirstDay         {$('div.pmu-button').eq(30)}
+        dateRangeSelectLastDay          {$('div.pmu-button').eq(53)}
+
         audienceAnalysisSelector        {$('div.setup-segmentation-category.check').eq(0)}
         eventPageTrackingSelector       {$('div.setup-segmentation-category.check').eq(1)}
         multiVarianceTestingSelector    {$('div.setup-segmentation-category.check').eq(2)}
@@ -43,12 +45,18 @@ class SetupAnalyticPage extends Page{
         filterABTesting         {$('input[value="a_b_testing"]')}
 
         automationAudience      {$('div[data-name="AutomationAudience"]')}
+        automationAudienceXBtn  {$('span.x-button').eq(4)}
+
+        yesBtnPopUp             {$('button#left-btn-popup')}
+        noBtnPopUp              {$('button#right-btn-popup')}
     }
 
     void inputTitleAndDate(){
         dateRangeTxtFldClick.click()
         sleep(2000)
-        dateRangeSelectDay.click()
+        dateRangeSelectFirstDay.click()
+        sleep(2000)
+        dateRangeSelectLastDay.click()
         sleep(2000)
         hypothesisTitleTxtFld.click()
         sleep(2000)
