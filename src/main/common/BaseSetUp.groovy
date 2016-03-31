@@ -2,14 +2,18 @@ package common
 import geb.Browser
 import org.junit.After
 import org.junit.Before
-import org.openqa.selenium.JavascriptExecutor
-import org.openqa.selenium.WebDriver
+import org.openqa.selenium.By
 import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
 import page.HomePage
 import page.LoginPage
 import page.RegisterPage
 import page.SegmentationListPage
 import page.SetupAnalyticPage
+
+import java.sql.Driver
+import java.util.concurrent.TimeoutException
 
 /**
  * Created by c07nw91fg1hw on 3/28/16.
@@ -27,7 +31,7 @@ class BaseSetUp {
     void openURL() {
         browser.clearCookies()
         browser.go("http://labs:Welcome123@54.225.139.186:8080/dashboard/resources/html/index.html")
-//        browser.driver.manage().window().maximize()
+        browser.driver.manage().window().maximize()
         loginPage = browser.page(LoginPage)
         registerPage = browser.page(RegisterPage)
         setupAnalyticPage = browser.page(SetupAnalyticPage)

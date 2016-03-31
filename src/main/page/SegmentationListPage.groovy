@@ -7,7 +7,7 @@ import geb.Page
 class SegmentationListPage extends Page{
     static content = {
         //=========================== Add New Segment ====================================
-        addNewSegmentPage               {$('input#add-new-segment-button')}
+        addNewSegmentPage               {$('input#add-new-segment-button.btn.btn-md.new-seg-text')}
         //=========================== Setup Attributes ===================================
         productListBtn                  {$('a[data-name="Product"]')}
         emailUsThankYouBtn              {$('a[data-name="Email"]')}
@@ -60,7 +60,9 @@ class SegmentationListPage extends Page{
     }
 
     void clickAddNewSegment(){
+        waitFor {addNewSegmentPage.isDisplayed()}
         addNewSegmentPage.click()
+        sleep(3000)
     }
 
     void addAudienceAnalysis(){

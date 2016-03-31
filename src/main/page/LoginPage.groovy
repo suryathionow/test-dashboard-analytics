@@ -1,6 +1,9 @@
 package page;
 import geb.Page
 import groovy.util.logging.Slf4j
+import org.junit.Assert
+
+import javax.lang.model.element.Element
 
 /**
  * Created by c07nw91fg1hw on 3/28/16.
@@ -28,6 +31,7 @@ public class LoginPage extends Page{
     }
 
     void inputCredentials(String usernm, String pass){
+        waitFor{userNameTextField.isDisplayed()}
         userNameTextField.value(usernm)
         passwordTextField.value(pass)
         username = usernm
