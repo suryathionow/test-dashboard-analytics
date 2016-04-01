@@ -8,15 +8,26 @@ class HomeTest extends BaseSetUp{
     @Test
     void homePageTest(){
         loginPage.inputCredentials("qaautomation", "Welcome123")
-        waitFor(3)
+        waitFor(5)
         homePage.assertTest()
-        waitFor(3)
+        waitFor(5)
         homePage.listWebsiteTest()
-        waitFor(3)
+        waitFor(5)
         homePage.setupButtonTest()
-        waitFor(3)
+        waitFor(5)
         homePage.footerModule.assertFooterTest()
 //        waitFor(3)
 //        homePage.footerModule.hyperlinkTest()
+    }
+
+    @Test
+    void headerTest(){
+        loginPage.inputCredentials("qaautomation", "Welcome123")
+        waitFor(5)
+        homePage.setUpAnalyticButton.eq(0).click()
+        waitFor(10)
+//        homePage.headerModule.notificationIcon.click()
+        homePage.headerModule.checkNotificationCounter()
+
     }
 }

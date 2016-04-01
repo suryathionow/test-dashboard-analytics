@@ -3,6 +3,7 @@ package page
 import geb.Page
 import junit.framework.Assert
 import module.Footer
+import module.Header
 
 /**
  * Created by c07f2arudd6h on 3/29/16.
@@ -10,13 +11,16 @@ import module.Footer
 class HomePage extends Page{
 
     static content = {
-        informationText         {$('div[class="header-top"]')}
+        hiText                  {$('div[class="header-top"] > p').eq(0)}
+        welcomeText             {$('div[class="header-top"] > p[class = "welcome-text"]')}
+        informationText         {$('div[class="header-top"] > p').eq(2)}
 //        carouselItem            {$('div[class="banner-pagination"]')} --> Need to be tested but right now the carousel item does not have functionality
         previousButton          {$('a[class="jcarousel-prev carousel"]')}
         nextButton              {$('a[class="jcarousel-next carousel"]')}
         thumbnailWebsite        {$('div[class="site-image-container"]')}
 //        thumbnailImage          {$('div[id="setup-analytic"]')}
         setUpAnalyticButton     {$('div#setup-analytic')}
+        headerModule            {module Header}
         footerModule            {module Footer}
     }
 
@@ -27,15 +31,13 @@ class HomePage extends Page{
 //    } --> Ini bener
 
     void assertTest(){
-        Assert.assertEquals("HI Labs,\nWELCOME TO YOUR MORPH DASHBOARD\nNow you can " +
-                "collect and consolidate the analytic tags from your website. Choose your " +
-                "desired website to be analyzed", informationText.text())
+        Assert.assertEquals("HI Labs,", hiText.text())
+        Assert.assertEquals("WELCOME TO YOUR MORPH DASHBOARD", welcomeText.text())
+        Assert.assertEquals("Now you can collect and consolidate the analytic tags from your website. " +
+                "Choose your desired website to be analyzed", informationText.text())
     }
 
     void listWebsiteTest(){
-        if (thumbnailWebsite.isEmpty()){
-
-        }
         if (thumbnailWebsite.size() < 3){
             Assert.assertEquals(false, previousButton.isDisplayed())
             Assert.assertEquals(false, nextButton.isDisplayed())
@@ -57,5 +59,7 @@ class HomePage extends Page{
         browser.driver.navigate().back()
         sleep(4000)
         setUpAnalyticButton.eq(total-total).click()
+        sleep(4000)
+        browser.driver.navigate().back()
     }
 }
