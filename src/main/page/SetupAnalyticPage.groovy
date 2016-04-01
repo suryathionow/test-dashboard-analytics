@@ -30,7 +30,8 @@ class SetupAnalyticPage extends Page {
         dateRangeSelectLastDay { $('div.pmu-button').eq(53) }
 
         audienceAnalysisSelector { $('div.setup-segmentation-category.check').eq(0) }
-        eventPageTrackingSelector { $('div.setup-segmentation-category.check').eq(1) }
+//        eventPageTrackingSelector { $('div.setup-segmentation-category.check').eq(1) }
+        eventPageTrackingSelector{$('div#event_page_analysis')}
         multiVarianceTestingSelector { $('div.setup-segmentation-category.check').eq(2) }
         abTestingSelector { $('div.setup-segmentation-category.check').eq(3) }
         continueBtn { $('input#next-analytic-setup') }
@@ -48,6 +49,7 @@ class SetupAnalyticPage extends Page {
 
         automationAudience { $('div[data-name="AutomationAudience"]') }
         automationAudienceXBtn { $('span.x-button').eq(0) }
+        AutoEventPageTrackingXBtn { $('span.x-button').eq(3) }
 
         yesBtnPopUp { $('button#left-btn-popup') }
         noBtnPopUp { $('button#right-btn-popup') }
@@ -115,6 +117,19 @@ class SetupAnalyticPage extends Page {
         if(driver.findElements(By.cssSelector('div[data-name="AutomationAudience"]')).size() != 0){
             waitFor {automationAudienceXBtn.isDisplayed()}
             automationAudienceXBtn.click()
+            waitFor {yesBtnPopUp.isDisplayed()}
+            yesBtnPopUp.click()
+            sleep(3000)
+            createHypothesisTab.click()
+        }else{
+            createHypothesisTab.click()
+        }
+    }
+
+    void checkHypo2() {
+        if(driver.findElements(By.cssSelector('div[data-name="AutomationEventPageTracking"]')).size() != 0){
+            waitFor {AutoEventPageTrackingXBtn.isDisplayed()}
+            AutoEventPageTrackingXBtn.click()
             waitFor {yesBtnPopUp.isDisplayed()}
             yesBtnPopUp.click()
             sleep(3000)

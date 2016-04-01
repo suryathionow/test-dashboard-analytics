@@ -11,6 +11,7 @@ import page.LoginPage
 import page.RegisterPage
 import page.SegmentationListPage
 import page.SetupAnalyticPage
+import page.TreeMapPage
 
 import java.sql.Driver
 import java.util.concurrent.TimeoutException
@@ -26,6 +27,7 @@ class BaseSetUp {
     protected def HomePage homePage = new HomePage()
     protected def SetupAnalyticPage setupAnalyticPage = new SetupAnalyticPage()
     protected def SegmentationListPage segmentationListPage = new SegmentationListPage()
+    protected def TreeMapPage treeMapPage = new TreeMapPage()
 
     @Before
     void openURL() {
@@ -37,6 +39,7 @@ class BaseSetUp {
         setupAnalyticPage = browser.page(SetupAnalyticPage)
         homePage = browser.page(HomePage)
         segmentationListPage = browser.page(SegmentationListPage)
+        treeMapPage = browser.page(TreeMapPage)
     }
 
     @After

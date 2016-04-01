@@ -26,8 +26,26 @@ class SetupAnalyticTest extends BaseSetUp{
         waitFor(5)
         log.info("6. Create New Test Segmentation")
         segmentationListPage.addAudienceAnalysis()
-//        waitFor(30)
+        waitFor(30)
 //        Assert.assertTrue(segmentationListPage.summaryContainer.isDisplayed())
 //        waitFor(5)
+    }
+
+    @Test
+    void createHypothesisEventPageTracking(){
+        log.info("Step: Verify User is Able to Create Hypothesis for Audience Analysis")
+        log.info("1. Login using valid credentials.")
+        loginPage.inputCredentials("qaautomation", "Welcome123")
+        waitFor(5)
+        log.info("2. Click Setup Analytic Button")
+        setupAnalyticPage.clickSetupAnalyticBtn()
+        log.info("3. Check if Analytic Hypothesis is Already Added or Not")
+        setupAnalyticPage.checkHypo2()
+        waitFor(3)
+        log.info("4. Create Hypothesis Event Page Tracking")
+        setupAnalyticPage.createHypothesisEventPageTracking()
+        waitFor(5)
+        treeMapPage.clickLoginPageEvent()
+        waitFor(5)
     }
 }
