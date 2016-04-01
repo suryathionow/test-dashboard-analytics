@@ -46,17 +46,20 @@ class SegmentationListPage extends Page{
         removeAudienceNameBtn           {$('span.delete-audience')}
         removeEventBtn                  {$('span[remove-event-id="select_product"]')}
         removeExternalDataSourceBtn     {$('span[remove-event-id="external_data_source"]')}
-        drugNameDropdown                {$('a.accordion-button.collapsed').eq(0)}
+        drugNameDropdown                {$('a[href="#drug_name"]')}
         aspirinRegimentRadioButton      {$('input[value="Aspirin Regimen Bayer Low Dose"]')}
         bayerXtraStrengthRadioButton    {$('input[value="Bayer Extra Strength"]')}
         drugNamePrimaryKeyBtn           {$('div.trash-image.cluster-key[key-attribute-id="drug_name"]')}
-        genderDropdown                  {$('a.accordion-button.collapsed').eq(0)}
+        genderDropdown                  {$('a[href="#gender"]')}
         femaleRadioButton               {$('input#female.attribute-list-checkbox')  }
         maleRadioButton                 {$('input#male.attribute-list-checkbox')}
         genderPrimaryKeyBtn             {$('div.trash-image.cluster-key[key-attribute-id="gender"]')}
 
         cancelBtn                       {$('input#cancel-create-audience')}
-        createAudienceBtn               {$('input#next-analytic-setup')}
+        createAudienceBtn               {$('input#next-analytic-setup.next-setup-segmentation.btn.btn-primary')}
+        //=========================== Segmentation List ===================================
+        summaryContainer                {$('div.summary-container.col-xs-6.col-sm-3.col-md-3.col-lg-3')}
+        spinnerLoader                   {$('div.spinner-loader')}
     }
 
     void clickAddNewSegment(){
@@ -66,7 +69,6 @@ class SegmentationListPage extends Page{
     }
 
     void addAudienceAnalysis(){
-//        clickAddNewSegment()
         productListBtn.click()
         sleep(2000)
         drugNameCheckbox.click()
@@ -85,6 +87,20 @@ class SegmentationListPage extends Page{
         sleep(3000)
         audienceNameTxtField.value("Test Audience Auto")
         sleep(2000)
+        drugNamePrimaryKeyBtn.click()
+        sleep(2000)
+        drugNameDropdown.click()
+        sleep(2000)
+        aspirinRegimentRadioButton.click()
+        sleep(2000)
+        genderPrimaryKeyBtn.click()
+        sleep(2000)
+        genderDropdown.click()
+        sleep(2000)
+        maleRadioButton.click()
+        sleep(2000)
+        createAudienceBtn.click()
+//        sleep(2000)
     }
 
     void selectDrugNameAndGender(){

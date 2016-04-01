@@ -22,7 +22,7 @@ class SetupAnalyticPage extends Page {
         profileBtn { $('button#goProfile.btn.btn-default.btn-md.go-profile') }
         signOutBtn { $('button#signOut.btn.btn-default.go-signout') }
         //===============================================================================
-        createHypothesisTab { $('a[href="#sectionA"]') }
+        createHypothesisTab { $('a', text: 'Create Hypothesis') }
         //=============== Use this Element below after click createHypothesis ===========
         hypothesisTitleTxtFld { $('input#name.form-control') }
         dateRangeTxtFldClick { $('input#start-date') }
@@ -35,7 +35,7 @@ class SetupAnalyticPage extends Page {
         abTestingSelector { $('div.setup-segmentation-category.check').eq(3) }
         continueBtn { $('input#next-analytic-setup') }
         //===============================================================================
-        myHypothesisTab { $('a[href="#sectionB"]') }
+        myHypothesisTab { $('a', text: 'My Hypothesis') }
         //=============== Use this Element below after click myHypothesisTab ============
         hypothesisTitleTxtField { $('input#search-name') }
         dateRange { $('input#date-range-field') }
@@ -113,13 +113,13 @@ class SetupAnalyticPage extends Page {
 
     void checkHypo() {
         if(driver.findElements(By.cssSelector('div[data-name="AutomationAudience"]')).size() != 0){
-            System.out.println("Element is Present");
             waitFor {automationAudienceXBtn.isDisplayed()}
             automationAudienceXBtn.click()
             waitFor {yesBtnPopUp.isDisplayed()}
             yesBtnPopUp.click()
+            sleep(3000)
+            createHypothesisTab.click()
         }else{
-            System.out.println("Element is Absent");
             createHypothesisTab.click()
         }
     }
