@@ -3,6 +3,8 @@ package module
 import geb.Module
 import junit.framework.Assert
 import org.openqa.selenium.By
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
 
 /**
  * Created by c07f2arudd6h on 3/30/16.
@@ -27,7 +29,7 @@ class Header extends Module{
         logoutButton            {$('button#signOut')}
 //      ===================================================================== Add some element of Header on Setup Page
         notificationIcon            {$('div[class="notification-counter-container  col-sm-1"] > img')}
-        menuIcon                    {$('img[src="../../images/Select_Site.png"]')}
+        menuWebsiteIcon             {$('div[class="menu-header pull-left"]')}
         websiteImage                {$('div[class="breadcrumbs-logo"]')}
         breadcrumbHeader            {$('ol > li')}
         notificationCounter         {$('div[class="notification-counter"]')}
@@ -35,6 +37,7 @@ class Header extends Module{
         noNotificationDropdown      {$('div[class="qtip-content"] > div[class="notification-list"] > div[class="no-notification hide"]')}
         notificationListDropdown    {$('div[class="qtip-content"] > div[class="notification-list"] > ul > li ')}
         selectWebsiteTextDropdown   {$('div[class="select-profile"] > div')}
+        testt                       {$('div[class="menu-header pull-left"]')}
         listWebsiteDropdown         {$('div[class="select-profile"] > ul > li ')}
         imgWebsiteDropdown          {$('div[class="select-profile"] > ul > li > span > img')}
         titleWebsiteDropdown        {$('div[class="select-profile"] > ul > li > span > div').eq(0)}
@@ -56,7 +59,7 @@ class Header extends Module{
         Assert.assertEquals(true, companyTextDropdown.isDisplayed())
         Assert.assertEquals(true, cityTextDropdown.isDisplayed())
         Assert.assertEquals(true, profileButton.isDisplayed())
-        Assert.assertEquals(true, signOutButton.isDisplayed())
+        Assert.assertEquals(true, logoutButton.isDisplayed())
     }
 
     void goToProfilePage(){
@@ -77,9 +80,9 @@ class Header extends Module{
 
     void checkNotificationCounter(){
         notificationIcon.click()
-        System.out.println("Testing size of notificationCounter.size() = "+ browser.driver.findElement(By.cssSelector('div[class="notification-counter hide"]')).isDisplayed())
-        System.out.println("Testing size of notificationListDropdown.size() = "+ browser.driver.findElement(By.cssSelector('div[class="notification-list"] > ul > li ')).isDisplayed())
-        if (!browser.driver.findElement(By.cssSelector('div[class="notification-counter hide"]')).isDisplayed() && !browser.driver.findElement(By.cssSelector('div[class="notification-list"] > ul > li ')).isDisplayed()){
+//        System.out.println("Testing size of notificationCounter.size() = "+ browser.driver.findElement(By.cssSelector('div[class="notification-counter"]')).isDisplayed())
+//        System.out.println("Testing size of notificationListDropdown.size() = "+ browser.driver.findElement(By.cssSelector('div[class="notification-list"] > ul > li ')).isDisplayed())
+        if (!browser.driver.findElement(By.cssSelector('div[class="notification-counter"]')).isDisplayed() && !browser.driver.findElement(By.cssSelector('div[class="notification-list"] > ul > li ')).isDisplayed()){
             noNotificationDropdown.isDisplayed()
             Assert.assertEquals("You don’t have any notification",noNotificationDropdown.text())
         }else{
@@ -92,4 +95,20 @@ class Header extends Module{
             }
         }
     }
+
+/*    void checkListWebsiteMenu(){
+        WebDriverWait wait = new WebDriverWait(browser.driver, 5)
+        int totalListWebsite = listWebsiteDropdown.size()
+        if (totalListWebsite > 0){
+            for (int i = 0; i < totalListWebsite; i++) {
+                wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector('div[class="select-profile"] > ul > li ')))
+                listWebsiteDropdown.eq(i).click()
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector('div[class="menu-header pull-left"]')))
+                browser.driver.findElement(By.cssSelector('div[class="menu-header pull-left"]')).click()
+            }
+            goToHomePage()
+        }else{
+            goToHomePage()
+        }
+    }*/
 }

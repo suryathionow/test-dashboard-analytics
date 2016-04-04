@@ -2,10 +2,7 @@ package common
 import geb.Browser
 import org.junit.After
 import org.junit.Before
-import org.openqa.selenium.By
 import org.openqa.selenium.firefox.FirefoxDriver
-import org.openqa.selenium.support.ui.ExpectedConditions
-import org.openqa.selenium.support.ui.WebDriverWait
 import page.HomePage
 import page.LoginPage
 import page.RegisterPage
@@ -29,10 +26,11 @@ class BaseSetUp {
     protected def SegmentationListPage segmentationListPage = new SegmentationListPage()
     protected def TreeMapPage treeMapPage = new TreeMapPage()
 
+
     @Before
     void openURL() {
         browser.clearCookies()
-        browser.go("http://labs:Welcome123@54.225.139.186:8080/dashboard/resources/html/index.html")
+        browser.go("http://labs:Welcome123@labs.photon.in/dashboard/resources/html/index.html")
         browser.driver.manage().window().maximize()
         loginPage = browser.page(LoginPage)
         registerPage = browser.page(RegisterPage)

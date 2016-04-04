@@ -14,7 +14,7 @@ class HomePage extends Page{
         hiText                  {$('div[class="header-top"] > p').eq(0)}
         welcomeText             {$('div[class="header-top"] > p[class = "welcome-text"]')}
         informationText         {$('div[class="header-top"] > p').eq(2)}
-//        carouselItem            {$('div[class="banner-pagination"]')} --> Need to be tested but right now the carousel item does not have functionality
+//        carouselItem            {$('div[class="banner-pagination"]')}
         previousButton          {$('a[class="jcarousel-prev carousel"]')}
         nextButton              {$('a[class="jcarousel-next carousel"]')}
         thumbnailWebsite        {$('div[class="site-image-container"]')}
@@ -28,7 +28,7 @@ class HomePage extends Page{
 //        Assert.assertEquals("HI Labs,\nWELCOME TO YOUR MORPH DASHBOARD.\nNow you can " +
 //                "collect and consolidate the analytic tags from your website. Choose your " +
 //                "desire website to be analyze", informationText.text())
-//    } --> Ini bener
+//    }
 
     void assertTest(){
         Assert.assertEquals("HI Labs,", hiText.text())
