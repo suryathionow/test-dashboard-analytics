@@ -8,12 +8,13 @@ import javax.swing.Action
  */
 class TreeMapPage extends Page{
     static content = {
-        login       {$('rect[fill="#055570"]')}
-        home        {$('rect[width="171"]')}
-        productList {$('rect[width="263"]')}
+        login           {$('g[data-hasqtip="5"]')}
+        home            {$('g[data-hasqtip="6"]')}
+        productList     {$('g[data-hasqtip="8"]')}
+        eventTracking   {$('div.event-tracking')}
     }
 
-    void clickLoginPageEvent(){
+    public void clickLoginPageEvent(){
         waitFor {login.isDisplayed()}
         login.click()
         sleep(5000)

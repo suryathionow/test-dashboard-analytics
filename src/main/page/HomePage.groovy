@@ -30,14 +30,14 @@ class HomePage extends Page{
 //                "desire website to be analyze", informationText.text())
 //    }
 
-    void assertTest(){
+    public void assertTest(){
         Assert.assertEquals("HI Labs,", hiText.text())
         Assert.assertEquals("WELCOME TO YOUR MORPH DASHBOARD", welcomeText.text())
         Assert.assertEquals("Now you can collect and consolidate the analytic tags from your website. " +
                 "Choose your desired website to be analyzed", informationText.text())
     }
 
-    void listWebsiteTest(){
+    public void listWebsiteTest(){
         if (thumbnailWebsite.size() < 3){
             Assert.assertEquals(false, previousButton.isDisplayed())
             Assert.assertEquals(false, nextButton.isDisplayed())
@@ -52,7 +52,7 @@ class HomePage extends Page{
         nextButton.click()
     }
 
-    void setupButtonTest(){
+    public void setupButtonTest(){
         int total = thumbnailWebsite.size()
         setUpAnalyticButton.eq(total-1).click()
         sleep(4000)

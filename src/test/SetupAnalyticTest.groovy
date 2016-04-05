@@ -44,8 +44,6 @@ class SetupAnalyticTest extends BaseSetUp{
         waitFor(3)
         log.info("4. Create Hypothesis Event Page Tracking")
         setupAnalyticPage.createHypothesisEventPageTracking()
-        waitFor(5)
-        treeMapPage.clickLoginPageEvent()
-        waitFor(5)
+        waitFor(15)
     }
 }

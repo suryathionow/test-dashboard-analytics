@@ -30,7 +30,7 @@ public class LoginPage extends Page{
         errorPassword           {$('p[class="error-msg"]').eq(1)}
     }
 
-    void inputCredentials(String usernm, String pass){
+    public void inputCredentials(String usernm, String pass){
         waitFor{userNameTextField.isDisplayed()}
         userNameTextField.value(usernm)
         passwordTextField.value(pass)
@@ -39,11 +39,11 @@ public class LoginPage extends Page{
         loginButton.click()
     }
 
-    String getUsername(){
+    public String getUsername(){
         return username
     }
 
-    void enabledRememberMeTest(){
+    public void enabledRememberMeTest(){
         if (rememberMeBox.isDisabled()){
             rememberMeBox.click()
         }

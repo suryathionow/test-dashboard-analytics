@@ -62,13 +62,13 @@ class SegmentationListPage extends Page{
         spinnerLoader                   {$('div.spinner-loader')}
     }
 
-    void clickAddNewSegment(){
+    public void clickAddNewSegment(){
         waitFor {addNewSegmentPage.isDisplayed()}
         addNewSegmentPage.click()
         sleep(3000)
     }
 
-    void addAudienceAnalysis(){
+    public void addAudienceAnalysis(){
         productListBtn.click()
         sleep(2000)
         drugNameCheckbox.click()
@@ -103,7 +103,7 @@ class SegmentationListPage extends Page{
 //        sleep(2000)
     }
 
-    void selectDrugNameAndGender(){
+    public void selectDrugNameAndGender(){
         drugNamePrimaryKeyBtn.click()
         sleep(2000)
         drugNameDropdown.click()

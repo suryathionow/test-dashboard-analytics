@@ -49,13 +49,13 @@ class SetupAnalyticPage extends Page {
 
         automationAudience { $('div[data-name="AutomationAudience"]') }
         automationAudienceXBtn { $('span.x-button').eq(0) }
-        AutoEventPageTrackingXBtn { $('span.x-button').eq(3) }
+        autoEventPageTrackingXBtn { $('span.x-button').eq(3) }
 
         yesBtnPopUp { $('button#left-btn-popup') }
         noBtnPopUp { $('button#right-btn-popup') }
     }
 
-    void inputTitleAndDate() {
+    public void inputTitleAndDate() {
         dateRangeTxtFldClick.click()
         sleep(2000)
         dateRangeSelectFirstDay.click()
@@ -66,7 +66,7 @@ class SetupAnalyticPage extends Page {
         sleep(2000)
     }
 
-    void createHypothesisAudienceAnalysis() {
+    public void createHypothesisAudienceAnalysis() {
         hypothesisTitleTxtFld.value("AutomationAudience")
         sleep(2000)
         inputTitleAndDate()
@@ -75,7 +75,7 @@ class SetupAnalyticPage extends Page {
         sleep(2000)
     }
 
-    void createHypothesisEventPageTracking() {
+    public void createHypothesisEventPageTracking() {
         hypothesisTitleTxtFld.value("AutomationEventPageTracking")
         sleep(2000)
         inputTitleAndDate()
@@ -84,7 +84,7 @@ class SetupAnalyticPage extends Page {
         sleep(2000)
     }
 
-    void createHypothesisMultiVarianceTesting() {
+    public void createHypothesisMultiVarianceTesting() {
         hypothesisTitleTxtFld.value("AutomationMultiVariance")
         sleep(2000)
         inputTitleAndDate()
@@ -93,7 +93,7 @@ class SetupAnalyticPage extends Page {
         sleep(2000)
     }
 
-    void createHypothesisABTesting() {
+    public void createHypothesisABTesting() {
         hypothesisTitleTxtFld.value("AutomationABTesting")
         sleep(2000)
         inputTitleAndDate()
@@ -102,18 +102,18 @@ class SetupAnalyticPage extends Page {
         sleep(2000)
     }
 
-    void clickCreateHypothesisTab() {
+    public void clickCreateHypothesisTab() {
 //        waitFor {createHypothesisTab.isDisplayed()}
         createHypothesisTab.click()
     }
 
-    void clickSetupAnalyticBtn() {
+    public void clickSetupAnalyticBtn() {
         waitFor { setUpAnalyticBtn.isDisplayed() }
         setUpAnalyticBtn.click()
         sleep(3000)
     }
 
-    void checkHypo() {
+    public void checkHypo() {
         if(driver.findElements(By.cssSelector('div[data-name="AutomationAudience"]')).size() != 0){
             waitFor {automationAudienceXBtn.isDisplayed()}
             automationAudienceXBtn.click()
@@ -126,10 +126,10 @@ class SetupAnalyticPage extends Page {
         }
     }
 
-    void checkHypo2() {
+    public void checkHypo2() {
         if(driver.findElements(By.cssSelector('div[data-name="AutomationEventPageTracking"]')).size() != 0){
-            waitFor {AutoEventPageTrackingXBtn.isDisplayed()}
-            AutoEventPageTrackingXBtn.click()
+            waitFor {autoEventPageTrackingXBtn.isDisplayed()}
+            autoEventPageTrackingXBtn.click()
             waitFor {yesBtnPopUp.isDisplayed()}
             yesBtnPopUp.click()
             sleep(3000)
